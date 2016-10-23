@@ -51,10 +51,10 @@ function changeImage(image) {
     if(image.getAttribute("src") != 'back.png') { //can only change card that's not open yet
          return false;
     }
-    var confirmation = confirm("Do you want to select this card?");
+   /* var confirmation = confirm("Do you want to select this card?");
     if(confirmation==false) {
         return false;
-    }
+    }*/
     if(counter<1) {
         for(var i = 0; i<imageElement.length;i++) {
             if(image == imageElement[i]) {
