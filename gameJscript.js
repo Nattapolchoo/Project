@@ -85,12 +85,14 @@ function check() {
         setTimeout(function () {
             document.getElementById("head").innerHTML = text;
     }, 1000);
-        score+=500;
+        score+=1;
         updateScore();
         counter = 0;
     } else {
         var text = document.getElementById("head").innerHTML;
         document.getElementById("head").innerHTML = "WRONG!!";
+        score-=1;
+        updateScore();
         setTimeout(function () {
             document.getElementById("head").innerHTML = text;
             for(var i=0;i<imageElement.length;i++) {
