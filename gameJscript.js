@@ -1,10 +1,14 @@
-//------------------------Score ------------------------------------
+//------------------------Score&Turn ------------------------------------
 var score=0;
+var turn=1;
 function updateScore() {
     document.getElementById("score").innerHTML= "Score: "+score;
 }
-
 updateScore();
+function updateTurn() {
+    document.getElementById("turn").innerHTML = "Turn: "+turn;
+}
+updateTurn();
 //------------------------Image------------------------------------------
 var counter = 0; //number that card that is open
 
@@ -32,6 +36,7 @@ function randomImage(length) {
 var imageElement = document.getElementsByClassName("my_image");
 
 function start() {
+
     for(var i = 0; i<imageElement.length;i++) {
         var imageRandom = randomImage(usedImage.length); 
         imageElement[i].setAttribute('alt',usedImage[imageRandom].id); 
@@ -43,7 +48,7 @@ function start() {
         for(var i = 0; i<imageElement.length;i++) {
             imageElement[i].setAttribute('src', 'back.png');    
         }
-    }, 3000);
+    }, 4000);
 }
 var answer1=0;
 var answer2=0;
@@ -65,7 +70,7 @@ function changeImage(image) {
             }
                 
         }
-    } else {
+    } else if(counter==1) {
         for(var i = 0; i<imageElement.length;i++) {
             if(image == imageElement[i]) {
                 imageElement[i].setAttribute('src',updateImage[i].src);
@@ -75,6 +80,8 @@ function changeImage(image) {
             }   
         }
 
+    } else {
+        return false;
     }
     if(counter==2) check();
 }
@@ -84,10 +91,12 @@ function check() {
         document.getElementById("head").innerHTML = "CORRECT!!";
         setTimeout(function () {
             document.getElementById("head").innerHTML = text;
+            counter = 0;
     }, 1000);
         score+=1;
+        turn+=1;
         updateScore();
-        counter = 0;
+        updateTurn();
     } else {
         var text = document.getElementById("head").innerHTML;
         document.getElementById("head").innerHTML = "WRONG!!";
@@ -103,8 +112,10 @@ function check() {
                     imageElement[i].setAttribute('src', 'back.png');
                 }
             }
+            counter = 0;
+            turn+=1;
+            updateTurn();
         }, 1000);
-        counter = 0;
     }
 }
 
@@ -117,4 +128,19 @@ function check() {
 
 
 //-------------------- Game -----------------------
-start();
+var Player="";
+     Player = prompt('Please enter your name:', ' ');
+    if ( Player==' ' || Player==null ) {
+        Player="Bob";
+    }
+document.getElementsByTagName("h3")[0].innerHTML = "Player: "+Player;
+
+if(Player!="") {
+    var confirmation= confirm("You have 4 second to remember all the image. May the force be with you");
+    if(confirmation == true) {
+        start();
+    } else {
+        alert("Coward.");
+    }
+}
+    

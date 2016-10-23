@@ -7,7 +7,11 @@
     <body>
         <!-- create div as container with width x then use inline property to create img with width x/6 -->
         <h1 id="head"> Ready to play some game? </h1>
-        <h1 id="score"></h1>
+        <div id="info"> 
+            <h1 id="score"></h1>
+            <h1 id="turn"></h1>
+        </div>
+        <h3></h3>
         <div id="container">
             <div id="row1">
                 <img src="back.png" class="my_image" alt="image 1" onclick="changeImage(this);">
@@ -59,7 +63,9 @@
             </div>
 
         </div>
-    <script src="gameJscript.js">
+    <script src="username.js">
+        
     </script>
+    <script src="gameJscript.js"></script>
     </body>
 </html>

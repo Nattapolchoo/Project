@@ -1,14 +1,14 @@
+body {
+    background-color: #74AFAD;
+    text-align: center;
+}
 #container {  
   position: relative;
   margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+
   width: 971px;
-  height: 1207px;
-  text-align: center;
-  border: 3px solid black;  
+  height: 1207px; 
+  margin-top: 10px;
 }
 .my_image {
   float:left;
@@ -28,8 +28,26 @@
 h1 {
     text-align: center;
     margin-top:0px;
+    color: white;
 }
 
-.my_image:hover {
-    border-radius:10px;
+.my_image:hover {   
+    border-color: #D9853B;
+    cursor: pointer;
+}
+
+h3 {
+    color: white;
+    float:right;
+    font-size: 150%;
+}
+#turn {
+    display:inline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#score {
+    display:inline;
+    margin-left: 10px;
+    margin-right: 10px;
 }
